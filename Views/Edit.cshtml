@@ -1,0 +1,25 @@
+﻿@model TaskManagementApp.Models.TaskItem
+
+<h2>Edit Task</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label for="Title">Title</label>
+        <input type="text" class="form-control" id="Title" name="Title" value="@Model.Title" required />
+    </div>
+    <div class="form-group">
+        <label for="Description">Description</label>
+        <textarea class="form-control" id="Description" name="Description">@Model.Description</textarea>
+    </div>
+    <div class="form-group">
+        <label for="DueDate">Due Date</label>
+        <input type="date" class="form-control" id="DueDate" name="DueDate" value="@Model.DueDate.ToString("yyyy-MM-dd")" required />
+    </div>
+    <div class="form-group">
+        <label for="IsCompleted">Completed</label>
+        <input type="checkbox" id="IsCompleted" name="IsCompleted" @(Model.IsCompleted ? "checked" : "") />
+    </div>
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+</form>
+
+<a href="@Url.Action("Index", "Task")" class="btn btn-secondary mt-3">Back to Task List</a>
